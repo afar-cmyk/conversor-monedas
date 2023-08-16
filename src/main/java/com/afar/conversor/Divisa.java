@@ -22,7 +22,6 @@ public class Divisa {
 	}
 	
 	public String obtenerPropiedadesDivisa(String codigoDivisa, String propiedadDivisa) {
-		
 		if (comprobarCodigoDivisa(codigoDivisa) && comprobarPropiedadDivisa(propiedadDivisa)) {
 			return listaDivisas.getProperty(codigoDivisa + "." + propiedadDivisa);
 		} else if (!comprobarCodigoDivisa(codigoDivisa)) {
@@ -30,7 +29,6 @@ public class Divisa {
 		} else {
 			return "Error! Propiedad de divisa erroneo";
 		}
-		
 	}
 	
 	private boolean comprobarCodigoDivisa(String codigoDivisa) { 
@@ -44,6 +42,5 @@ public class Divisa {
 	public Properties getPrueba2() {
 		return listaDivisas;
 	}
-	
 	
 }

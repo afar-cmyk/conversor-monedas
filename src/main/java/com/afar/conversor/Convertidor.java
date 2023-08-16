@@ -1,23 +1,33 @@
 package com.afar.conversor;
 
+import java.text.DecimalFormat;
+
 public class Convertidor {
+
+	private double valorFinal;
 	
-	public Convertidor(String divisaBase, double valorBase, String divisaFinal) {
-		System.out.println("Divisa Base: " + divisaBase);
-		System.out.println("Valor de la divisa Base: " + valorBase);
-		System.out.println("Divisa Final: " + divisaFinal);
+	Divisa divisa = new Divisa();
+	DecimalFormat df = new DecimalFormat("0.00");
+	
+	private double obtenerTasaDivisa(String codigoDivisa) {
+		double tasaDivisa;
+		tasaDivisa = Double.parseDouble(divisa.obtenerPropiedadesDivisa(codigoDivisa, "valor"));
+		return tasaDivisa;
+	}
+	
+	private double convertirUSD(double valorIngresado, String codigoDivisa) {
+		double valorFinalUSD;
+		valorFinalUSD = valorIngresado * obtenerTasaDivisa(codigoDivisa);		
+		return valorFinalUSD;
+	}
+	
+	public double convertir(double valorIngresado, String codigoDivisaBase, String codigoDivisaFinal) {
+		valorFinal = (convertirUSD(valorIngresado, codigoDivisaBase)) / obtenerTasaDivisa(codigoDivisaFinal);
+		return valorFinal;
+	}
+	
+	public void resultadoFormateado() {
+		System.out.println(df.format(valorFinal));
 	}
 	
 }
-
-
-/*- Convertir de la moneda de tu país a Dólar - 0.000247
-- Convertir de la moneda de tu país  a Euros - 1.091752
-- Convertir de la moneda de tu país  a Libras Esterlinas - 1.271438
-- Convertir de la moneda de tu país  a Yen Japonés - 0.006874
-- Convertir de la moneda de tu país  a Won sul-coreano - 0.000749   */
-
-
-//de 1 dolar a peso =  (1 / 0.000247);
-// de 1 peso a dolar es retornar el valor de la tasa
-// usar el formato de la cadena de caracteres que esta en main para visualizar todos los ceros del valor final
