@@ -1,20 +1,49 @@
 package com.afar.conversor;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
 public class Divisa {
-	private String codigoPais;
-	private double valorBase;
-	private String nombrePais;
 	
-	// final private 
+	Properties listaDivisas = new Properties();
 	
-	/*- Convertir de la moneda de tu país a Dólar - 0.000247
-	- Convertir de la moneda de tu país  a Euros - 1.091752
-	- Convertir de la moneda de tu país  a Libras Esterlinas - 1.271438
-	- Convertir de la moneda de tu país  a Yen Japonés - 0.006874
-	- Convertir de la moneda de tu país  a Won sul-coreano - 0.000749   */
+	public Divisa() {
+		cargarListaDivisas();
+	}
+	
+	public void cargarListaDivisas() {
+		try {
+			FileInputStream entrada = new FileInputStream("./src/main/divisas/listaDivisas.properties");
+			listaDivisas.load(entrada);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public String obtenerPropiedadesDivisa(String codigoDivisa, String propiedadDivisa) {
+		
+		if (comprobarCodigoDivisa(codigoDivisa) && comprobarPropiedadDivisa(propiedadDivisa)) {
+			return listaDivisas.getProperty(codigoDivisa + "." + propiedadDivisa);
+		} else if (!comprobarCodigoDivisa(codigoDivisa)) {
+			return "Error! Codigo de divisa erroneo";
+		} else {
+			return "Error! Propiedad de divisa erroneo";
+		}
+		
+	}
+	
+	private boolean comprobarCodigoDivisa(String codigoDivisa) { 
+		return ((listaDivisas.getProperty(codigoDivisa + ".nombreDivisa") != null ));
+	}
+	
+	private boolean comprobarPropiedadDivisa(String codigoDivisa) { 
+		return ((listaDivisas.getProperty("cop." + codigoDivisa) != null ));
+	}
+	
+	public Properties getPrueba2() {
+		return listaDivisas;
+	}
 	
 	
-	//de 1 dolar a peso =  (1 / 0.000247);
-	// de 1 peso a dolar es retornar el valor de la tasa
-	// usar el formato de la cadena de caracteres que esta en main para visualizar todos los ceros del valor final
 }
