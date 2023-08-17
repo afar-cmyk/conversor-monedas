@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <Tab text="Información">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" layoutX="107.0" layoutY="129.0" orientation="VERTICAL" prefHeight="71.0" prefWidth="255.0" vgap="5.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Convertidor Universal">
+                           <font>
+                              <Font name="Calibri Bold" size="40.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="por: Andrés Felipe Álvarez">
+                           <font>
+                              <Font name="Calibri Light" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </FlowPane>
+                  <FlowPane layoutX="106.0" layoutY="243.0" prefHeight="74.0" prefWidth="363.0" vgap="5.0">
+                     <children>
+                        <Label text="Acerca de este proyecto:">
+                           <font>
+                              <Font name="Calibri Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TextFlow prefHeight="52.0" prefWidth="365.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Convertidor de divisas y de medidas para poner a prueba todo lo aprendido en el curso de Java en Alura, este segundo proyecto hace parte de una serie de desafios llamado AluraOneChallenge." textAlignment="CENTER" wrappingWidth="348.904296875">
+                                 <font>
+                                    <Font name="Calibri Light" size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </TextFlow>
+                     </children>
+                  </FlowPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Monedas">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <FlowPane alignment="CENTER_LEFT" layoutY="14.0" prefHeight="83.0" prefWidth="571.0" rowValignment="TOP">
+                     <children>
+                        <Label text="Convertidor de Monedas:">
+                           <font>
+                              <Font name="Calibri Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ingresa la cantidad, elige las monedas de origen y destino, y presiona 'Convertir'." wrappingWidth="510.904296875">
+                           <font>
+                              <Font name="Calibri Light" size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="30.0" layoutY="117.0" prefHeight="100.0" prefWidth="571.0" AnchorPane.bottomAnchor="183.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="117.0">
+                     <children>
+                        <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="50.0" prefWidth="150.0" rowValignment="TOP" vgap="5.0">
+                           <children>
+                              <Label text="Ingrese un valor:" />
+                              <TextField />
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="50.0" prefWidth="150.0" rowValignment="TOP" vgap="5.0">
+                           <children>
+                              <Label text="Moneda origen:" />
+                              <ChoiceBox prefWidth="150.0" />
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="CENTER_LEFT" orientation="VERTICAL" prefHeight="50.0" prefWidth="150.0" rowValignment="TOP" vgap="5.0">
+                           <children>
+                              <Label text="Moneda destino:" />
+                              <ChoiceBox prefWidth="150.0" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="30.0" layoutY="212.0" prefHeight="43.0" prefWidth="571.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Convertir" />
+                     </children>
+                  </FlowPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" layoutY="297.0" prefHeight="43.0" prefWidth="571.0" rowValignment="BASELINE">
+                     <children>
+                        <Text fill="#00000059" strokeType="OUTSIDE" strokeWidth="0.0" text="=" wrappingWidth="19.921875">
+                           <font>
+                              <Font name="Calibri" size="40.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="123456789">
+                           <font>
+                              <Font name="Calibri Bold" size="40.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#00000059" strokeType="OUTSIDE" strokeWidth="0.0" text="USD" textAlignment="CENTER">
+                           <font>
+                              <Font name="Calibri Bold" size="25.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </FlowPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
