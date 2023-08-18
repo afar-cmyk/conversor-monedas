@@ -13,6 +13,9 @@ public class InterfazGrafica extends Application {
 	private Stage primaryStage;
 	private TabPane mainLayout;
 	
+	ControlInterfazGrafica prueba = new ControlInterfazGrafica();
+	
+	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		this.primaryStage = primaryStage;
@@ -24,8 +27,12 @@ public class InterfazGrafica extends Application {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(InterfazGrafica.class.getResource("MainView.fxml"));
 		mainLayout = loader.load();
+		
+		mainLayout.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		
 		Scene scene = new Scene(mainLayout);
 		primaryStage.setScene(scene);
+		
 		primaryStage.show();
 	}
 
