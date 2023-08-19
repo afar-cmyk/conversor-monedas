@@ -9,12 +9,10 @@ import javafx.scene.control.TabPane;
 import javafx.fxml.FXMLLoader;
 
 public class InterfazGrafica extends Application {
-	
 	private Stage primaryStage;
 	private TabPane mainLayout;
 	
 	ControlInterfazGrafica prueba = new ControlInterfazGrafica();
-	
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
@@ -26,13 +24,12 @@ public class InterfazGrafica extends Application {
 	private void showMainView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(InterfazGrafica.class.getResource("MainView.fxml"));
-		mainLayout = loader.load();
 		
+		mainLayout = loader.load();
 		mainLayout.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		
 		Scene scene = new Scene(mainLayout);
 		primaryStage.setScene(scene);
-		
 		primaryStage.show();
 	}
 
