@@ -10,6 +10,11 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.event.ActionEvent;
+import javafx.util.converter.DoubleStringConverter;
+import javafx.scene.control.TextFormatter;
+
+
+import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class ControlInterfazGrafica {
@@ -20,6 +25,8 @@ public class ControlInterfazGrafica {
 	private Spinner<Double> valorIngresado;
 	@FXML
 	private Button botonConvertir;
+	@FXML
+	private Button botonPrueba;
 	@FXML
 	private Text valorFinal;
 	@FXML
@@ -37,6 +44,17 @@ public class ControlInterfazGrafica {
 		
 		SpinnerValueFactory<Double> valueFactory = new SpinnerValueFactory.DoubleSpinnerValueFactory(Double.MIN_VALUE, Double.MAX_VALUE, 0);
 	    valorIngresado.setValueFactory(valueFactory);
+	    
+	    TextFormatter<Double> textFormatter = new TextFormatter<>(new DoubleStringConverter(), 0.0, change -> {
+            String newText = change.getControlNewText();
+            if (newText.matches("[0-9]*(\\.[0-9]*)?")) {
+                return change;
+            } else {
+                return null;
+            }
+        });
+	    
+	    valorIngresado.getEditor().setTextFormatter(textFormatter);
 	    
 	    divisaFinal.setOnAction(this::establecerCodigoValorFinal);
 	}
@@ -61,6 +79,11 @@ public class ControlInterfazGrafica {
 		String divisaFinal = ListarDivisas.encontrarClave(this.divisaFinal.getValue());
 		
 		codigoValorFinal.setText(divisaFinal.toUpperCase());
+	}
+	
+	@FXML
+	public void mostrarModalError() throws IOException {
+		InterfazGrafica.showErrorModal();
 	}
 	
 	private String resultadoFormateado(double valorFinal) {

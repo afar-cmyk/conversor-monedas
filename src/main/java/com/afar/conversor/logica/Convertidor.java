@@ -18,8 +18,17 @@ public class Convertidor {
 	}
 	
 	public static double convertir(double valorIngresado, String codigoDivisaBase, String codigoDivisaFinal) {
-		valorFinal = (convertirUSD(valorIngresado, codigoDivisaBase)) / obtenerTasaDivisa(codigoDivisaFinal);
-		return valorFinal;
-	}
-	
+	    if (valorIngresado == 0) {
+	        return valorIngresado;
+	    } else if (codigoDivisaBase == null) {
+	        System.out.println("Seleccione el tipo de divisa base");
+	        return 0;
+	    } else if (codigoDivisaFinal == null) {
+	        System.out.println("Seleccione el tipo de divisa final");
+	        return 0;
+	    } else {
+	        valorFinal = (convertirUSD(valorIngresado, codigoDivisaBase)) / obtenerTasaDivisa(codigoDivisaFinal);
+	        return valorFinal;
+	    }
+	}	
 }

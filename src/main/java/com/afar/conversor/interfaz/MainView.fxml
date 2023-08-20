@@ -100,6 +100,7 @@
                   <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="30.0" layoutY="217.0" prefHeight="43.0" prefWidth="571.0">
                      <children>
                         <Button fx:id="botonConvertir" mnemonicParsing="false" onAction="#establecerValorFinal" prefHeight="40.0" prefWidth="110.0" text="Convertir" />
+                        <Button fx:id="botonPrueba" mnemonicParsing="false" onAction="#mostrarModalError" prefHeight="40.0" prefWidth="110.0" text="Prueba" />
                      </children>
                   </FlowPane>
                   <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" layoutY="304.0" prefHeight="43.0" prefWidth="571.0" rowValignment="BASELINE">
