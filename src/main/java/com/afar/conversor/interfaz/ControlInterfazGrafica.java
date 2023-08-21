@@ -18,15 +18,12 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class ControlInterfazGrafica {
-	DecimalFormat df = new DecimalFormat("0.000000");
 	private String[] listaDivisas = ListarDivisas.listarNombresDivisas();
 
 	@FXML
 	private Spinner<Double> valorIngresado;
 	@FXML
 	private Button botonConvertir;
-	@FXML
-	private Button botonPrueba;
 	@FXML
 	private Text valorFinal;
 	@FXML
@@ -60,18 +57,22 @@ public class ControlInterfazGrafica {
 	}
 	
 	@FXML
-	public void establecerValorFinal() {
+	public void establecerValorFinal() throws IOException {
 		Double valorIngresado = this.valorIngresado.getValue();
 		String divisaBase = ListarDivisas.encontrarClave(this.divisaBase.getValue());
 		String divisaFinal = ListarDivisas.encontrarClave(this.divisaFinal.getValue());
 		
-		double valorConvertido = Convertidor.convertir(valorIngresado, divisaBase, divisaFinal);
+		InterfazGrafica interfazGrafica = new InterfazGrafica();
 		
-		if(valorConvertido < 1) {
-			valorFinal.setText(resultadoFormateado(valorConvertido));
-		} else {
-			valorFinal.setText(Double.toString(valorConvertido));
-		}
+		 if (divisaBase == null) {
+			 interfazGrafica.showErrorModal("Seleccione el tipo de divisa base");
+		    } else if (divisaFinal == null) {
+		        interfazGrafica.showErrorModal("Seleccione el tipo de divisa final");
+		    } else {
+				double valorConvertido = Convertidor.convertir(valorIngresado, divisaBase, divisaFinal);
+				
+				valorFinal.setText(resultadoFormateado(valorConvertido));
+		    }
 	}
 	
 	@FXML
@@ -81,12 +82,8 @@ public class ControlInterfazGrafica {
 		codigoValorFinal.setText(divisaFinal.toUpperCase());
 	}
 	
-	@FXML
-	public void mostrarModalError() throws IOException {
-		InterfazGrafica.showErrorModal();
-	}
-	
 	private String resultadoFormateado(double valorFinal) {
+		DecimalFormat df = new DecimalFormat("0.000000");
 		String textoValorFinal = df.format(valorFinal);
 		return textoValorFinal;
 	}

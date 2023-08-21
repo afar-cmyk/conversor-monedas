@@ -7,7 +7,4 @@ public class ControladorErrorModal {
 	@FXML
 	private Text mensajeModal;
 	
-	public void establecerTextoModal(String mensajeError) {	
-		mensajeModal.setText(mensajeError);
-	}
 }
