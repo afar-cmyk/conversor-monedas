@@ -22,5 +22,5 @@ Java, JavaFX y CSS
 21/08/2023 - Primera compilación a .jar
 <br><br>
 
-### Requisitos
+## Requisitos
 [Java](https://www.java.com/en/download/)
