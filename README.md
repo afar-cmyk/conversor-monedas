@@ -1,5 +1,8 @@
-# Conversor de Monedas
-Segundo desafio de Oracle One dictado por Alura.
+<div align="center">
+   <h1>Conversor de Monedas</h1>
+  <a href="#license"><img src="https://img.shields.io/badge/License-MIT-blue" alt="License"></a>
+</div>
+
 <br><br>
 
 ## Acerca de este proyecto
